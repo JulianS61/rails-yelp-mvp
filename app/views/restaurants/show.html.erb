@@ -6,4 +6,14 @@
   <li><%= @restaurant.phone_number %></li>
 </ul>
 
+<br>
+<%= link_to "add review", new_restaurant_review_path(@restaurant) %>
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li>
+      <%= review.rating %>/5 - <%= review.content %>
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to "back to list", restaurants_path %>
