@@ -1,14 +1,21 @@
-<h1>Restaurants#index</h1>
-
-<ul>
-
+<div class="row">
   <% @restaurants.each do |restaurant| %>
-    <li>
-      <%= link_to "#{restaurant.name} - #{restaurant.category}",  restaurant_path(restaurant) %>
-
-    </li>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card-trip my-3">
+          <img src="https://source.unsplash.com/800x800/?restaurant" />
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= restaurant.name %></h2>
+              <p><%= restaurant.address %></p>
+            </div>
+            <div>
+              <h2 class="card-trip-pricing"><%= restaurant.category.capitalize %></h2>
+              <p><%= restaurant.phone_number %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-
-</ul>
-
-<%= link_to "add new restaurant", new_restaurant_path %>
+</div>
